@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANKETH GR - Portfolio</title>
+    <style>
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+       line-height: 1.6;
+       color: #333;
+       overflow-x: hidden;
+}
+
+.container {
+       max-width: 1200px;
+       margin: 0 auto;
+       padding: 0 20px;
+}
+
+header {
+       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+       color: white;
+       padding: 1rem 0;
+       position: fixed;
+       width: 100%;
+       top: 0;
+       z-index: 1000;
+       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+nav {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+
+.logo {
+       font-size: 1.5rem;
+       font-weight: bold;
+}
+
+.nav-links {
+       display: flex;
+       list-style: none;
+       gap: 2rem;
+ }
+
+.nav-links a {
+       color: white;
+       text-decoration: none;
+       font-weight: 500;
+       transition: opacity 0.3s;
+}
+
+.nav-links a:hover {
+            opacity: 0.8;
+}
+
+.hero {
+       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+       color: white;
+       padding: 150px 0 100px;
+       text-align: center;
+}
+
+.hero h1 {
+       font-size: 3.5rem;
+       margin-bottom: 1rem;
+       animation: fadeInUp 1s ease;
+}
+
+.hero p {
+       font-size: 1.3rem;
+       margin-bottom: 2rem;
+       animation: fadeInUp 1s ease 0.2s both;
+}
+
+.cta-btn {
+       display: inline-block;
+       background: #ff6b6b;
+       color: white;
+       padding: 15px 30px;
+       border-radius: 50px;
+       text-decoration: none;
+       font-weight: bold;
+       transition: transform 0.3s, box-shadow 0.3s;
+       animation: fadeInUp 1s ease 0.4s both;
+}
+
+.cta-btn:hover {
+       transform: translateY(-3px);
+       box-shadow: 0 10px 25px rgba(255,107,107,0.4);
+}
+
+section {
+       padding: 100px 0;
+}
+
+.section-title {
+       text-align: center;
+       font-size: 2.5rem;
+       margin-bottom: 3rem;
+       color: #333;
+}
+
+#profile .profile-content {
+       display: grid;
+       grid-template-columns: 1fr 1fr;
+       gap: 4rem;
+       align-items: center;
+}
+
+.profile-img {
+       text-align: center;
+}
+
+.profile-img img {
+       width: 300px;
+       height: 300px;
+       border-radius: 50%;
+       border: 5px solid #667eea;
+       object-fit: cover;
+}
+
+.profile-text h3 {
+       font-size: 1.8rem;
+       margin-bottom: 1rem;
+       color: #667eea;
+}
+
+.skills-grid {
+       display: grid;
+       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+       gap: 2rem;
+       color: #ffffff;
+}
+
+.skill-card {
+       background: #667eea;
+       padding: 2rem;
+       border-radius: 15px;
+       text-align: center;
+       transition: transform 0.3s, box-shadow 0.3s;
+       border: 1px solid #e9ecef;
+}
+
+.skill-card:hover {
+       transform: translateY(-10px);
+       box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.skill-icon {
+       font-size: 3rem;
+       margin-bottom: 1rem;
+       color: #333;
+}
+
+#certifications {
+    background: #ffffff;
+}
+
+#certificateList .project-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#certificateList .project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+#certificateList h3 {
+    margin-bottom: 1rem;
+    color: #f5f5f5;
+    word-break: break-word;
+}
+
+#certificateList .cta-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+#certificateList .cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.projects-grid {
+       display: grid;
+       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+       gap: 2rem;
+}
+
+.project-card {
+       background: white; 
+       border-radius: 15px;
+       margin-bottom: 1.5rem;
+       overflow: hidden;
+       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+       transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-card:hover {
+       transform: translateY(-10px);
+       box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.project-img {
+       height: 200px;
+       background: linear-gradient(45deg, #667eea, #764ba2);
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       color: rgb(42, 40, 174);
+       font-size: 1.2rem;
+}
+
+.project-content {
+       padding: 1.5rem;
+}
+
+.contact-container {
+       display: grid;
+       grid-template-columns: 1fr 1fr;
+       gap: 4rem;
+}
+
+.contact-info h3 {
+       color: #667eea;
+       margin-bottom: 1.5rem;
+}
+
+.contact-item {
+       display: flex;
+       align-items: center;
+       margin-bottom: 1.5rem;
+}
+
+.contact-item i {
+       font-size: 1.5rem;
+       color: #667eea;
+       margin-right: 1rem;
+       width: 30px;
+}
+
+.contact-form {
+       background: #f8f9fa;
+       padding: 2rem;
+       border-radius: 15px;
+}
+
+.form-group {
+       margin-bottom: 1.5rem;
+}
+
+.form-group label {
+       display: block;
+       margin-bottom: 0.5rem;
+       font-weight: 600;
+       color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+       width: 100%;
+       padding: 12px 15px;
+       border: 2px solid #e9ecef;
+       border-radius: 8px;
+       font-size: 1rem;
+       transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+       outline: none;
+       border-color: #667eea;
+}
+
+.submit-btn {
+       background: linear-gradient(135deg, #667eea, #764ba2);
+       color: white;
+       padding: 15px 30px;
+       border: none;
+       border-radius: 8px;
+       font-size: 1rem;
+       font-weight: 600;
+       cursor: pointer;
+       width: 100%;
+       transition: transform 0.3s;
+}
+
+.submit-btn:hover {
+       transform: translateY(-2px);
+}
+
+.message {
+       padding: 1rem;
+       margin-bottom: 1rem;
+       border-radius: 8px;
+       display: none;
+}
+
+.success {
+       background: #d4edda;
+       color: #155724;
+       border: 1px solid #c3e6cb;
+}
+
+.error {
+       background: #f8d7da;
+       color: #721c24;
+       border: 1px solid #f5c6cb;
+}
+
+@keyframes fadeInUp {
+       from {
+              opacity: 0;
+              transform: translateY(30px);
+            }
+       to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+}
+
+@media (max-width: 768px) {
+       .nav-links {
+                display: none;
+            }
+
+       .hero h1 {
+                font-size: 2.5rem;
+            }
+
+       #profile .profile-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+       }
+}
+
+footer {
+       background: #333;
+       color: white;
+       text-align: center;
+       padding: 2rem 0;
+}
+</style>       
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">SANKETH GR </div>
+            <ul class="nav-links">
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certifications">Certification</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Hi, I'm SANKETH GR </h1>
+            <a href="#contact" class="cta-btn">Get In Touch</a>
+        </div>
+    </section>
+
+    <section id="profile">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="profile-content">
+                <div class="profile-img">
+                    <img src="./sanki.jpeg" alt="Profile"/>
+                </div>
+                <div class="profile-text">
+                    <h3>Passionate Developer</h3>
+                    <p>I'm a front-end developer building modern web applications. I specialize in creating responsive, user-friendly websites and applications using cutting-edge technologies.</p>
+                    <p>Currently based in Davangere, Karnataka. I’m actively expanding my knowledge in AI & ML and looking forward to diving deeper into Agentic AI. Always curious, always learning, and excited to build innovative projects!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" style="background: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                     <div class="skill-icon">
+                        <i class="fa-brands fa-js"></i>
+                    </div>
+                    <h3>JavaScript</h3>
+                    <p>Basics</p>
+                </div>
+                <div class="skill-card">
+                     <div class="skill-icon">
+                        <i class="devicon-c-plain colored"></i>
+                    </div>
+                    <h3>C</h3>
+                    <p>Intermediate</p>
+                </div>
+                <div class="skill-card">
+                   <div class="skill-icon">
+                        <i class="devicon-python-plain colored"></i>
+                    </div>
+                    <h3>python</h3>
+                    <p>Intermediate</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                       <i class="fa-brands fa-java"></i>
+                    </div>
+                    <h3>java</h3>
+                    <p>basics</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section id="certifications">
+    <div class="container">
+        <h2 class="section-title">Certifications</h2>
+        <div id="certificateList">
+            <div class="project-card">
+                <h3>Python Programming Certificate</h3>
+                <a href="https://drive.google.com/file/d/13xd8ToJ-ZldLs88D-T13mAU7RqT6LIf9/view?usp=drive_link" 
+                   target="_blank" 
+                   class="cta-btn">
+                   View Certificate
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div>
+                   <h1 style="text-align:center;">coming soon..!</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="background: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Let's work together!</h3>
+                    <div class="contact-item">
+                        <div>
+                            <strong>Email:</strong><br>
+                            gowdrusanketh@gmail.com
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div>
+                            <strong>Phone:</strong><br>
+                            +91 8431926232
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div>
+                            <strong>Location:</strong><br>
+                            davangere, Karnataka, India
+                        </div>
+                    </div>
+                     <div class="contact-item">
+                        <div>
+                            <strong>Instagram:</strong><br>
+                            <a href="https://www.instagram.com/sankii.18?igsh=MWJwd3Q4c3YxNzRjMQ%3D%3D&utm_source=qr">Instagram</a> 
+                        </div>
+                    </div>
+                     <div class="contact-item">
+                        <div>
+                            <strong>Linkedin:</strong><br>
+                            <a href="https://www.linkedin.com/in/sanketh-g-r-014851331?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">Linkedin</a> 
+                        </div>
+                    </div>
+                </div>
+                <form id="contactForm" class="contact-form">
+                    <div class="message" id="message"></div>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" id="user_name" name="user_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="user_email" name="user_email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea id="message_text" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Sanketh GR. All rights reserved.</p>
+        </div>
+    </footer>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+emailjs.init("M1lHyw2633l-8Z5-u");
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const messageEl = document.getElementById('message');
+    messageEl.textContent = 'Sending...';
+    messageEl.style.display = 'block';
+    emailjs.sendForm('service_ttchyzn', 'template_pzzmhb3', this)
+        .then(function() {
+            messageEl.textContent = 'Message sent successfully!';
+            messageEl.className = 'message success';
+            document.getElementById('contactForm').reset();
+        }, function(error) {
+            messageEl.textContent = 'Failed to send message.';
+            messageEl.className = 'message error';
+            console.log(error);
+        });
+});
+</script>
+</body>
+</html>
